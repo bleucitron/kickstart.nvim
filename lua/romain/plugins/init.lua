@@ -20,32 +20,38 @@ return {
 		branch = "harpoon2"
 	},
 	{
-		'jose-elias-alvarez/null-ls.nvim',
-		opts = function ()
-			local null_ls = require('null-ls')
-			local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+		"stevearc/conform.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		config = function()
+			local conform = require("conform")
 
-			local formatting = null_ls.builtins.formatting
-
-			return {
-				sources = {
-					formatting.prettierd
+			conform.setup({
+				formatters_by_ft = {
+					javascript = { "prettierd" },
+					typescript = { "prettierd" },
+					svelte = { "prettierd" },
+					css = { "prettierd" },
+					html = { "prettierd" },
+					json = { "prettierd" },
+					yaml = { "prettierd" },
+					markdown = { "prettierd" },
+					graphql = { "prettierd" },
+					lua = { "stylua" },
 				},
-				on_attach = function(client, bufnr)
-					if client.supports_method("textDocument/formatting") then
-						vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-						vim.api.nvim_create_autocmd("BufWritePre", {
-							group = augroup,
-							buffer = bufnr,
-							callback = function()
-								-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-								-- on later neovim version, you should use vim.lsp.buf.format({ async = false }) instead
-								vim.lsp.buf.format({ async = false })
-							end,
-						})
-					end
-				end
-			}
+				format_on_save = {
+					lsp_fallback = true,
+					async = false,
+					timeout_ms = 500
+				}
+			})
+
+			vim.keymap.set({ "n", "v" }, "<leader>f", function()
+				conform.format({
+					lsp_fallback = true,
+					async = false,
+					timeout_ms = 500
+				})
+			end, { desc = "Format file or range (in visual mode)" })
 		end
 	}
 }
