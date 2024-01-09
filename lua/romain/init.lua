@@ -7,6 +7,8 @@ vim.o.shiftwidth = 4
 vim.o.expandtab = false
 
 vim.bo.smartindent = true
+vim.opt.path:append '**'
+vim.opt.suffixesadd = '.js,.ts'
 
 vim.o.incsearch = true
 
