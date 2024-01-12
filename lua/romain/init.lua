@@ -7,13 +7,14 @@ vim.o.shiftwidth = 4
 vim.o.expandtab = false
 
 vim.bo.smartindent = true
+
 vim.opt.path:append '**'
 vim.opt.suffixesadd = '.js,.ts'
+vim.o.ic = false
 
 vim.o.incsearch = true
 
 vim.o.termguicolors = true
-
 vim.o.scrolloff = 8
 
 vim.o.colorcolumn = "80"
