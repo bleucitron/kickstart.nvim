@@ -20,7 +20,17 @@ vim.o.scrolloff = 8
 vim.o.colorcolumn = "80"
 
 -- Remaps
+
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+
+-- remap Previous/Next location
+vim.keymap.set("n", "<C-I>", "<C-O>")
+vim.keymap.set("n", "<C-O>", "<C-I>")
+
+
+-- add new lines without going into Insert mode
+vim.keymap.set("n", "<leader>o", "o<Esc>")
+vim.keymap.set("n", "<leader>O", "O<Esc>")
 
 -- moving selected lines up and down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
