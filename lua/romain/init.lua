@@ -18,7 +18,6 @@ vim.o.termguicolors = true
 vim.o.scrolloff = 8
 
 vim.o.colorcolumn = "80"
-
 -- Remaps
 
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
