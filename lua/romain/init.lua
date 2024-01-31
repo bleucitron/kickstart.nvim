@@ -17,6 +17,7 @@ vim.o.incsearch = true
 vim.o.termguicolors = true
 vim.o.scrolloff = 8
 
+vim.wo.cursorline = true
 vim.o.colorcolumn = "80"
 -- Remaps
 
