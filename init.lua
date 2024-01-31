@@ -194,6 +194,11 @@ require('lazy').setup({
     'navarasu/onedark.nvim',
     priority = 1000,
     config = function()
+      require('onedark').setup({
+        style = 'cool',
+        toggle_style_key = '<leader>ts'
+      })
+
       vim.cmd.colorscheme 'onedark'
     end,
   },
