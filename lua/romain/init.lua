@@ -47,6 +47,11 @@ vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+y")
 
+-- insert brackets
+vim.keymap.set("n", "<leader>{", "a{<CR>}<Esc><S-o>")
+vim.keymap.set("n", "<leader>(", "a()<Esc>i")
+vim.keymap.set("n", "<leader>[", "a[]<Esc>i")
+
 -- duplicate line
 vim.keymap.set("n", "<leader>dl", "yyp")
 
