@@ -60,7 +60,7 @@ return {
               return
             end
 
-            if client.name == 'tsserver' then
+            if client.name == 'tsserver' or client.name == 'svelte-language-server' then
               vim.api.nvim_command(':OrganizeImports')
             end
             vim.lsp.buf.format {
