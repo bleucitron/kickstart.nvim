@@ -94,24 +94,59 @@ return {
 				lint.try_lint()
 			end, { desc = "Trigger linting for current file" })
 		end
+	},
+
+
+	{
+		"nvim-neotest/neotest",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"antoinemadec/FixCursorHold.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"marilari88/neotest-vitest"
+		},
+		config = function()
+			local neotest = require('neotest')
+			neotest.setup({
+				adapters = {
+					require('neotest-vitest')
+				}
+			})
+
+			vim.keymap.set("n", "<leader>tr", function()
+				neotest.run.run()
+				neotest.output_panel.clear()
+				neotest.output_panel.open()
+				neotest.summary.open()
+			end, { desc = 'Run closest [T]est' })
+
+			vim.keymap.set("n", "<leader>trf", function()
+				neotest.run.run(vim.fn.expand("%"))
+				neotest.summary.open()
+			end, { desc = 'Run all [T]ests for current [F]ile' })
+
+			vim.keymap.set("n", "<leader>ta", function()
+				neotest.run.attach()
+			end, { desc = 'Attach to closest [T]est' })
+
+			vim.keymap.set("n", "<leader>ts", neotest.summary.toggle
+			, { desc = 'Toggle [T]ests [S]ummary' })
+			vim.keymap.set("n", "<leader>to", neotest.output_panel.toggle
+			, { desc = 'Toggle [T]ests [O]utput' })
+			vim.keymap.set("n", "<leader>tc", function()
+				neotest.output_panel.close()
+				neotest.summary.close()
+			end
+			, { desc = 'Close [T]ests panels' })
+
+			-- Can't make these work correctly yet ...
+			vim.keymap.set("n", "<leader>tw", function()
+				neotest.watch.toggle()
+			end, { desc = 'Toggle closest test watch' })
+			vim.keymap.set("n", "<leader>twf", function()
+				neotest.watch.toggle(vim.fn.expand("%"))
+			end, { desc = 'Toggle test watch for current file' })
+		end
 	}
-
-
-	-- {
-	-- 	"nvim-neotest/neotest",
-	-- 	dependencies = {
-	-- 		"nvim-lua/plenary.nvim",
-	-- 		"antoinemadec/FixCursorHold.nvim",
-	-- 		"nvim-treesitter/nvim-treesitter",
-	-- 		"marilari88/neotest-vitest"
-	-- 	},
-	-- 	config = function()
-	-- 		require('neotest').setup({
-	-- 			adapters = {
-	-- 				require('neotest-vitest')
-	-- 			}
-	-- 		})
-	-- 	end
-	-- }
 
 }
