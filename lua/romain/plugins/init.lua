@@ -147,6 +147,6 @@ return {
 				neotest.watch.toggle(vim.fn.expand("%"))
 			end, { desc = 'Toggle test watch for current file' })
 		end
-	}
-
+	},
+	'jparise/vim-graphql'
 }
