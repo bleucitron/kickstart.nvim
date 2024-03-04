@@ -1,23 +1,9 @@
-local function organize_imports()
-  local params = {
-    command = '_typescript.organizeImports',
-    arguments = { vim.api.nvim_buf_get_name(0) },
-    title = '',
-  }
-  vim.lsp.buf.execute_command(params)
-end
-
 return { -- Autoformat
   'stevearc/conform.nvim',
   event = { 'BufReadPre', 'BufNewFile' },
   opts = {
     notify_on_error = false,
-    format_on_save = function(bufnr)
-      -- local organize_imports_types = { 'js', 'ts', 'svelte' }
-      -- if vim.tbl_contains(organize_imports_types, vim.bo[bufnr].filetype) then
-      -- organize_imports()
-      -- end
-
+    format_on_save = function()
       vim.lsp.buf.format(nil, 1000)
 
       return {
