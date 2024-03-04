@@ -13,10 +13,12 @@ return { -- Autoformat
   opts = {
     notify_on_error = false,
     format_on_save = function(bufnr)
-      local organize_imports_types = { 'js', 'ts', 'svelte' }
-      if vim.tbl_contains(organize_imports_types, vim.bo[bufnr].filetype) then
-        organize_imports()
-      end
+      -- local organize_imports_types = { 'js', 'ts', 'svelte' }
+      -- if vim.tbl_contains(organize_imports_types, vim.bo[bufnr].filetype) then
+      -- organize_imports()
+      -- end
+
+      vim.lsp.buf.format(nil, 1000)
 
       return {
         timeout_ms = 500,
@@ -45,6 +47,7 @@ return { -- Autoformat
     {
       '<leader>f',
       function()
+        vim.lsp.buf.format(nil, 1000)
         require('conform').format { async = true, lsp_fallback = true }
       end,
       mode = '',
