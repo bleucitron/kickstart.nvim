@@ -48,17 +48,14 @@ return { -- Autocompletion
       --
       -- No, but seriously. Please read `:help ins-completion`, it is really good!
       mapping = cmp.mapping.preset.insert {
-        -- NOTE: [Romain] i don't think i like these mappings
-        --
-        -- -- Select the [n]ext item
-        -- ['<C-n>'] = cmp.mapping.select_next_item(),
-        -- -- Select the [p]revious item
-        -- ['<C-p>'] = cmp.mapping.select_prev_item(),
-        --
-        -- -- Accept ([y]es) the completion.
-        -- --  This will auto-import if your LSP supports it.
-        -- --  This will expand snippets if the LSP sent a snippet.
-        -- ['<C-y>'] = cmp.mapping.confirm { select = true },
+        -- Select the [n]ext item
+        ['<C-n>'] = cmp.mapping.select_next_item(),
+        -- Select the [p]revious item
+        ['<C-p>'] = cmp.mapping.select_prev_item(),
+        -- Accept ([y]es) the completion.
+        --  This will auto-import if your LSP supports it.
+        --  This will expand snippets if the LSP sent a snippet.
+        ['<C-y>'] = cmp.mapping.confirm { select = true },
 
         -- Manually trigger a completion from nvim-cmp.
         --  Generally you don't need this, because nvim-cmp will display
@@ -81,6 +78,33 @@ return { -- Autocompletion
         ['<C-h>'] = cmp.mapping(function()
           if luasnip.locally_jumpable(-1) then
             luasnip.jump(-1)
+          end
+        end, { 'i', 's' }),
+        --
+        --
+        -- NOTE: These were not included by TJ,
+        -- I'd like to keep them for now
+        --
+        ['<CR>'] = cmp.mapping.confirm {
+          behavior = cmp.ConfirmBehavior.Replace,
+          select = true,
+        },
+        ['<Tab>'] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_next_item()
+          elseif luasnip.expand_or_locally_jumpable() then
+            luasnip.expand_or_jump()
+          else
+            fallback()
+          end
+        end, { 'i', 's' }),
+        ['<S-Tab>'] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          elseif luasnip.locally_jumpable(-1) then
+            luasnip.jump(-1)
+          else
+            fallback()
           end
         end, { 'i', 's' }),
       },
