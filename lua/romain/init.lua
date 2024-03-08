@@ -6,6 +6,11 @@ vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = false
 
+-- to avoid breaking long lines of text
+vim.o.wrap = true
+vim.o.linebreak = true
+vim.bo.textwidth = 0
+
 vim.bo.smartindent = true
 
 vim.opt.path:append '**'
