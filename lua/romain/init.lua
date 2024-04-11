@@ -17,6 +17,9 @@ vim.opt.path:append '**'
 vim.opt.suffixesadd = '.js,.ts'
 vim.o.ic = false
 
+-- Set highlight on search, but clear on pressing <Esc> in normal mode
+vim.opt.hlsearch = true
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.o.incsearch = true
 
 vim.o.termguicolors = true
