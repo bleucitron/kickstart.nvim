@@ -1,4 +1,9 @@
 return {
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    main = 'ibl',
+    opts = {},
+  },
   'ThePrimeagen/vim-be-good',
   {
     'ThePrimeagen/harpoon',
@@ -76,6 +81,7 @@ return {
       'antoinemadec/FixCursorHold.nvim',
       'nvim-treesitter/nvim-treesitter',
       'marilari88/neotest-vitest',
+      '/nvim-neotest/nvim-nio',
     },
     config = function()
       local neotest = require 'neotest'
