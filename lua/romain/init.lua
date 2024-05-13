@@ -21,6 +21,7 @@ vim.o.ic = false
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.o.incsearch = true
+vim.o.inccommand = 'split'
 
 vim.o.termguicolors = true
 vim.o.scrolloff = 8
