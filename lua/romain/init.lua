@@ -17,9 +17,7 @@ vim.opt.path:append '**'
 vim.opt.suffixesadd = '.js,.ts'
 vim.o.ic = false
 
--- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.o.incsearch = true
 vim.o.inccommand = 'split'
 
@@ -28,53 +26,59 @@ vim.o.scrolloff = 8
 
 vim.wo.cursorline = true
 vim.o.colorcolumn = '80'
--- Remaps
 
-vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
+-- Remaps
+local set = vim.keymap.set
+
+set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
+set('n', '<leader>pv', vim.cmd.Ex)
+set('n', '<leader>x', '<cmd>.lua<CR>', { desc = 'Execute the current line' })
+set('n', '<leader><leader>x', '<cmd>source %<CR>', { desc = 'Execute the current file' })
 
 -- remap Previous/Next location
-vim.keymap.set('n', '<C-I>', '<C-O>')
-vim.keymap.set('n', '<C-O>', '<C-I>')
+set('n', '<C-I>', '<C-O>')
+set('n', '<C-O>', '<C-I>')
 
 -- add new lines without going into Insert mode
-vim.keymap.set('n', '<leader>o', 'o<Esc>')
-vim.keymap.set('n', '<leader>O', 'O<Esc>')
+set('n', '<leader>o', 'o<Esc>')
+set('n', '<leader>O', 'O<Esc>')
 
 -- moving selected lines up and down
-vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
-vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+set('v', 'J', ":m '>+1<CR>gv=gv")
+set('v', 'K', ":m '<-2<CR>gv=gv")
 
 -- edit every occurence of the word you at
-vim.keymap.set('n', '<leader>s', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>')
+set('n', '<leader>s', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>')
 
 -- in any visual mode, keep the copy registry consistent
-vim.keymap.set('x', '<leader>p', '"_dP')
+set('x', '<leader>p', '"_dP')
 
 -- copy into system's clipboard register
-vim.keymap.set('n', '<leader>y', '"+y')
-vim.keymap.set('v', '<leader>y', '"+y')
-vim.keymap.set('n', '<leader>Y', '"+y')
+set('n', '<leader>y', '"+y')
+set('v', '<leader>y', '"+y')
+set('n', '<leader>Y', '"+y')
 
 -- insert brackets
-vim.keymap.set('n', '<leader>{', 'a{<CR>}<Esc><S-o>')
-vim.keymap.set('n', '<leader>}', 'a{}<Esc>i')
-vim.keymap.set('n', '<leader>(', 'a(<CR>)<Esc><S-o>')
-vim.keymap.set('n', '<leader>)', 'a()<Esc>i')
-vim.keymap.set('n', '<leader>[', 'a[<CR>]<Esc><S-o>')
-vim.keymap.set('n', '<leader>]', 'a[]<Esc>i')
+set('n', '<leader>{', 'a{<CR>}<Esc><S-o>')
+set('n', '<leader>}', 'a{}<Esc>i')
+set('n', '<leader>(', 'a(<CR>)<Esc><S-o>')
+set('n', '<leader>)', 'a()<Esc>i')
+set('n', '<leader>[', 'a[<CR>]<Esc><S-o>')
+set('n', '<leader>]', 'a[]<Esc>i')
 
 -- duplicate line
-vim.keymap.set('n', '<leader>dl', 'yyp')
+set('n', '<leader>dl', 'yyp')
 
 -- center screen on page moves
-vim.keymap.set('n', '<C-d>', '<C-d>zz')
-vim.keymap.set('n', '<C-u>', '<C-u>zz')
+set('n', '<C-d>', '<C-d>zz')
+set('n', '<C-u>', '<C-u>zz')
 
 -- center search term
-vim.keymap.set('n', 'n', 'nzzzv')
-vim.keymap.set('n', 'N', 'Nzzzv')
+set('n', 'n', 'nzzzv')
+set('n', 'N', 'Nzzzv')
 
 -- do not lose previously yanked content
-vim.keymap.set('x', '<leader>p', '"_dP')
-vim.keymap.set('n', '<leader>d', '"_d')
-vim.keymap.set('v', '<leader>d', '"_d')
+set('x', '<leader>p', '"_dP')
+set('n', '<leader>d', '"_d')
+set('v', '<leader>d', '"_d')
