@@ -51,9 +51,6 @@ set('v', 'K', ":m '<-2<CR>gv=gv")
 -- edit every occurence of the word you at
 set('n', '<leader>s', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>')
 
--- in any visual mode, keep the copy registry consistent
-set('x', '<leader>p', '"_dP')
-
 -- copy into system's clipboard register
 set('n', '<leader>y', '"+y')
 set('v', '<leader>y', '"+y')
@@ -71,8 +68,8 @@ set('n', '<leader>]', 'a[]<Esc>i')
 set('n', '<leader>dl', 'yyp')
 
 -- center screen on page moves
-set('n', '<C-d>', '<C-d>zz')
-set('n', '<C-u>', '<C-u>zz')
+set('n', '<C-d>', '25<C-d>zz')
+set('n', '<C-u>', '25<C-u>zz')
 
 -- center search term
 set('n', 'n', 'nzzzv')
