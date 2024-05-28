@@ -63,6 +63,8 @@ set('n', '<leader>(', 'a(<CR>)<Esc><S-o>')
 set('n', '<leader>)', 'a()<Esc>i')
 set('n', '<leader>[', 'a[<CR>]<Esc><S-o>')
 set('n', '<leader>]', 'a[]<Esc>i')
+set('n', "<leader>'", "a''<Esc>i")
+set('n', '<leader>"', 'a""<Esc>i')
 
 -- duplicate line
 set('n', '<leader>dl', 'yyp')
