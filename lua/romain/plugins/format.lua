@@ -31,7 +31,7 @@ return { -- Autoformat
   },
   keys = {
     {
-      '<leader>f',
+      '<leader>F',
       function()
         vim.lsp.buf.format(nil, 1000)
         require('conform').format { async = true, lsp_fallback = true }
