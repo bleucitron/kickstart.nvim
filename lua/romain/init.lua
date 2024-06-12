@@ -37,6 +37,12 @@ set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
 set('n', '<leader>x', '<cmd>.lua<CR>', { desc = 'Execute the current line' })
 set('n', '<leader><leader>x', '<cmd>source %<CR>', { desc = 'Execute the current file' })
 
+-- -- resize splits
+-- set('n', '<M-h>', '<c-w>5<')
+-- set('n', '<M-l>', '<c-w>5>')
+-- set('n', '<M-j>', '<C-W>+')
+-- set('n', '<M-k>', '<C-W>-')
+
 -- remap Previous/Next location
 set('n', '<C-I>', '<C-O>')
 set('n', '<C-O>', '<C-I>')
