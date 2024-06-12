@@ -33,6 +33,7 @@ local set = vim.keymap.set
 set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 set('n', '<leader>pv', vim.cmd.Ex)
+set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
 set('n', '<leader>x', '<cmd>.lua<CR>', { desc = 'Execute the current line' })
 set('n', '<leader><leader>x', '<cmd>source %<CR>', { desc = 'Execute the current file' })
 
