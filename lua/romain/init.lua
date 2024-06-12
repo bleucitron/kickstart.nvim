@@ -57,15 +57,13 @@ set('v', '<leader>y', '"+y')
 set('n', '<leader>Y', '"+y')
 
 -- insert brackets
-set('n', '<leader>sb', 'a{<CR>}<Esc><S-o>', { desc = 'Add curly braces block' })
-set('n', '<leader>s', 'a{}<Esc>i', { desc = 'Add curly braces inline' })
-set('n', '<leader>vb', 'a(<CR>)<Esc><S-o>', { desc = 'Add parenthesis block' })
-set('n', '<leader>v', 'a()<Esc>i', { desc = 'Add parenthesis inline' })
-set('n', '<leader>fb', 'a[<CR>]<Esc><S-o>', { desc = 'Add brackets block' })
-set('n', '<leader>f', 'a[]<Esc>i', { desc = 'Add brackets inline' })
-set('n', "<leader>'b", "a'<CR>'<Esc><S-o>", { desc = 'Add single quote block' })
+set('n', '<leader>{', 'a{<CR>}<Esc><S-o>', { desc = 'Add curly braces block' })
+set('n', '<leader>}', 'a{}<Esc>i', { desc = 'Add curly braces inline' })
+set('n', '<leader>(', 'a(<CR>)<Esc><S-o>', { desc = 'Add parenthesis block' })
+set('n', '<leader>)', 'a()<Esc>i', { desc = 'Add parenthesis inline' })
+set('n', '<leader>[', 'a[<CR>]<Esc><S-o>', { desc = 'Add brackets block' })
+set('n', '<leader>]', 'a[]<Esc>i', { desc = 'Add brackets inline' })
 set('n', "<leader>'", "a''<Esc>i", { desc = 'Add single quote inline' })
-set('n', '<leader>"b', 'a"<CR>"<Esc><S-o>', { desc = 'Add double quote block' })
 set('n', '<leader>"', 'a""<Esc>i', { desc = 'Add double quote inline' })
 
 -- duplicate line
