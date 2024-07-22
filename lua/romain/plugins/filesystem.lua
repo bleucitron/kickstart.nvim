@@ -23,6 +23,9 @@ return {
       }, -- use_default_keymaps = false,
       view_options = {
         show_hidden = true,
+        is_always_hidden = function(name)
+          return name == '.' or name == '..'
+        end,
       },
     },
     -- Optional dependencies
