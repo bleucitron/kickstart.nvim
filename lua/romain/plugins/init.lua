@@ -95,7 +95,6 @@ return {
         neotest.run.run()
         neotest.output_panel.clear()
         neotest.output_panel.open()
-        neotest.summary.open()
       end, { desc = 'Run closest [T]est' })
 
       vim.keymap.set('n', '<leader>trf', function()
@@ -114,12 +113,15 @@ return {
         neotest.summary.close()
       end, { desc = 'Close [T]ests panels' })
 
-      -- Can't make these work correctly yet ...
       vim.keymap.set('n', '<leader>tw', function()
+        neotest.output_panel.clear()
+        neotest.output_panel.toggle()
+        -- would like to clear panel on rerun... but don't know how to do it
         neotest.watch.toggle()
       end, { desc = 'Toggle closest test watch' })
       vim.keymap.set('n', '<leader>twf', function()
-        neotest.watch.toggle(vim.fn.expand '%')
+        neotest.summary.toggle()
+        neotest.neotest.watch.toggle(vim.fn.expand '%')
       end, { desc = 'Toggle test watch for current file' })
     end,
   },
