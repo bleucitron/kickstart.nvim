@@ -6,10 +6,12 @@ vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = false
 
--- to avoid breaking long lines of text
-vim.o.wrap = true
-vim.o.linebreak = true
-vim.bo.textwidth = 0
+-- do not wrap text but insert EOL instead
+vim.o.wrap = false
+vim.o.textwidth = 100
+
+vim.wo.cursorline = true
+vim.o.colorcolumn = '100'
 
 vim.bo.smartindent = true
 
@@ -23,9 +25,6 @@ vim.o.inccommand = 'split'
 
 vim.o.termguicolors = true
 vim.o.scrolloff = 8
-
-vim.wo.cursorline = true
-vim.o.colorcolumn = '80'
 
 -- Remaps
 local set = vim.keymap.set
