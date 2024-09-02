@@ -75,6 +75,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
       defaults = {
         -- `hidden = true` is not supported in text grep commands.
         vimgrep_arguments = vimgrep_arguments,
+        preview = { filesize_limit = 0.2 },
       },
       pickers = {
         find_files = {
