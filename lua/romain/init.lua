@@ -62,15 +62,35 @@ set('n', '<leader>y', '"+y')
 set('v', '<leader>y', '"+y')
 set('n', '<leader>Y', '"+y')
 
+-- insert curly braces
+set('i', '{{', '{<CR>}<Esc><S-o>', { desc = 'Add curly braces block' })
+set('n', '{{', 'a{<CR>}<Esc><S-o>', { desc = 'Add curly braces block' })
+set('i', '}}', '{}<Esc>i', { desc = 'Add curly braces inline' })
+set('n', '}}', 'a{}<Esc>i', { desc = 'Add curly braces inline' })
+
+-- insert braces
+set('i', '((', '(<CR>)<Esc><S-o>', { desc = 'Add braces block' })
+set('n', '((', 'a(<CR>)<Esc><S-o>', { desc = 'Add braces block' })
+set('i', '))', '()<Esc>i', { desc = 'Add braces inline' })
+set('n', '))', 'a()<Esc>i', { desc = 'Add braces inline' })
+
 -- insert brackets
-set('n', '<leader>{', 'a{<CR>}<Esc><S-o>', { desc = 'Add curly braces block' })
-set('n', '<leader>}', 'a{}<Esc>i', { desc = 'Add curly braces inline' })
-set('n', '<leader>(', 'a(<CR>)<Esc><S-o>', { desc = 'Add parenthesis block' })
-set('n', '<leader>)', 'a()<Esc>i', { desc = 'Add parenthesis inline' })
-set('n', '<leader>[', 'a[<CR>]<Esc><S-o>', { desc = 'Add brackets block' })
-set('n', '<leader>]', 'a[]<Esc>i', { desc = 'Add brackets inline' })
-set('n', "<leader>'", "a''<Esc>i", { desc = 'Add single quote inline' })
-set('n', '<leader>"', 'a""<Esc>i', { desc = 'Add double quote inline' })
+set('i', '[[', '[<CR>]<Esc><S-o>', { desc = 'Add brackets block' })
+set('n', '[[', 'a[<CR>]<Esc><S-o>', { desc = 'Add brackets block' })
+set('i', ']]', '[]<Esc>i', { desc = 'Add brackets inline' })
+set('n', ']]', 'a[]<Esc>i', { desc = 'Add brackets inline' })
+
+-- insert chevron
+set('i', '>>', '<><Esc>i', { desc = 'Add chevron inline' })
+set('n', '>>', 'a<><Esc>i', { desc = 'Add chevron inline' })
+
+-- insert single quotes
+set('i', "''", "''<Esc>i", { desc = 'Add single quotes inline' })
+set('n', "''", "a''<Esc>i", { desc = 'Add single quotes inline' })
+
+-- insert double quotes
+set('i', '""', '""<Esc>i', { desc = 'Add double quotes inline' })
+set('n', '""', 'a""<Esc>i', { desc = 'Add double quotes inline' })
 
 -- duplicate line
 set('n', '<leader>dl', 'yyp')
