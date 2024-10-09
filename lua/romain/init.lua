@@ -107,3 +107,6 @@ set('n', 'N', 'Nzzzv')
 set('x', '<leader>p', '"_dP')
 set('n', '<leader>d', '"_d')
 set('v', '<leader>d', '"_d')
+
+-- add log (JavaScript only)
+set('n', '<leader>lg', "yiwoconsole.log('<Esc>pa', <Esc>pa)<Esc>")
