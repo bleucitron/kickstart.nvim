@@ -142,7 +142,7 @@ return { -- LSP Configuration & Plugins
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
-        tsserver = {},
+        -- tsserver = {},
         svelte = {},
         graphql = {},
         html = { filetypes = { 'html' } },
@@ -204,6 +204,11 @@ return { -- LSP Configuration & Plugins
         },
       }
     end,
+  },
+  {
+    'pmizio/typescript-tools.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
+    opts = {},
   },
   {
     'iamcco/diagnostic-languageserver',
